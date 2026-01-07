@@ -3,6 +3,9 @@ from src.core.preprocessing.Preprocessor import Preprocessor
 from src.config.settings import HAM_FOLDER,SPAM_FOLDER,PROCESSED_DATA_PATH
 from src.core.dataset.DatasetManager import DatasetManager
 from src.core.dataset.storage.CsvStorage import CsvStorage
+from src.core.features.VectorizeManager import VectorizeManager
+from src.core.features.DefaultVectorizer import DefaultVectorizer
+
 if __name__ == "__main__": 
     reader = Reader()
     X,Y =reader.build_dataset_raw(HAM_FOLDER,SPAM_FOLDER)
@@ -15,6 +18,13 @@ if __name__ == "__main__":
     
     csv_storage = CsvStorage(PROCESSED_DATA_PATH+"/dataset_cleaned.csv")
     dataset_manager = DatasetManager(csv_storage)
-    dataset_manager.save(X_processed,Y)
+    #dataset_manager.save(X_processed,Y)
     df =dataset_manager.load()
-    print(df.count())
+
+    print(f"Number of spam : " , df['label'].value_counts()[1])
+    print(f"Number of ham : " , df['label'].value_counts()[0])
+    count_vectorizer =DefaultVectorizer()
+    vac_manager =VectorizeManager(count_vectorizer)
+    vac_manager.build_vocabulary(df['content'])
+    z=vac_manager.get_vocabulary()
+    print(z)
