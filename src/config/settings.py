@@ -10,3 +10,5 @@ TEST_SIZE=0.2
 RANDOME_STATE = 42
 
 MODEL_PATH = os.path.join(BASE_DIR , "models")
+MODEL_NAME = os.path.join(MODEL_PATH , "naive_baise.pkl")
+VECTORIZER_NAME =os.path.join(MODEL_PATH , "vectorizer.pkl")
