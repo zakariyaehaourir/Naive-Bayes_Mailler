@@ -9,5 +9,5 @@ class Trainer:
     def train_model(self , X , Y):
         self.modal.train(X,Y)
     
-    def get_predict(self,X):
-        self.modal.predict(X)
+    def get_predict(self,X_test):
+        return self.modal.predict(X_test)

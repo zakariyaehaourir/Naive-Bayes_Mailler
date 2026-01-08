@@ -14,7 +14,7 @@ class NaiveBaiseClassifier(Model):
         self.model.fit(X_train , Y_train)
 
     
-    def save_model(path):
+    def save_model(self,path):
         pass
     
     def predict(self,X_test):
