@@ -11,3 +11,6 @@ class Trainer:
     
     def get_predict(self,X_test):
         return self.modal.predict(X_test)
+    
+    def load_model(self , path):
+        self.modal.load_model(path)
