@@ -6,13 +6,14 @@ from src.core.dataset.storage.CsvStorage import CsvStorage
 from src.core.features.VectorizeManager import VectorizeManager
 from src.core.features.DefaultVectorizer import DefaultVectorizer
 from sklearn.model_selection import train_test_split
-from src.config.settings import TEST_SIZE,RANDOME_STATE,MODEL_NAME,VECTORIZER_NAME
+from src.config.settings import TEST_SIZE,RANDOME_STATE,MODEL_NAME,VECTORIZER_NAME,REAL_HAM,REAL_SPAM
 from src.core.model.Model import Model
 from src.core.model.trainning.NaiveBaiseClassifier import NaiveBaiseClassifier
 from src.core.model.Spliter import Spliter
 from src.core.model.trainning.Trainer import Trainer
 from src.core.evaluation.Evaluator import Evaluator
 import pandas as pd
+from services.PredictionService import PredictionService
 if __name__ == "__main__": 
     #--------------Preparing our dataset from raw text files----------------------------
     reader = Reader()
@@ -59,6 +60,14 @@ if __name__ == "__main__":
     #------------------------Save model & vectorizer -----------------------------
     trainer.save_model(MODEL_NAME)
     vac_manager.save_vectorizer(VECTORIZER_NAME)
+    #------------------------- Real prediction based on new mails --------------------
+    prediction_service = PredictionService()
+    result =prediction_service.predict_real_world(REAL_SPAM)
+    print("test/spam.txt =>" ," Mail is concidered SPAM" if result == 1 else " Mail is concidered HAM")
+    result = prediction_service.predict_real_world(REAL_HAM)
+    print("test/ham.txt =>" ," Mail is concidered HAM" if result == 0 else " Mailis concidered SPAM")
+    
+
 
     
 

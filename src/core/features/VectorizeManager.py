@@ -16,4 +16,4 @@ class VectorizeManager:
         return self.vectorizer.save_vectorizer(path)
     
     def load_vectorizer(self, path):
-        return self.vectorizer.load_vectorizer(path)
+        self.vectorizer.load_vectorizer(path)
