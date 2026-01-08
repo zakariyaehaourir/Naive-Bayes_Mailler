@@ -1,5 +1,7 @@
 from .Vectorizer import Vectorizer
 from sklearn.feature_extraction.text import CountVectorizer
+
+import joblib
 class DefaultVectorizer(Vectorizer):
     def __init__(self):
         self.count_vecotrizer = CountVectorizer(stop_words="english")
@@ -29,3 +31,9 @@ class DefaultVectorizer(Vectorizer):
 
     def get_vocabulary(self):
         return self.count_vecotrizer.vocabulary_
+
+    def save_vectorizer(self , path):
+        joblib.dump(self.count_vecotrizer , path)
+    
+    def load_vectorizer(self , path):
+        self.count_vecotrizer = joblib.load(path)

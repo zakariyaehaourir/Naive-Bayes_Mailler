@@ -11,3 +11,7 @@ class Model(ABC):
     @abstractmethod
     def save_model(path):
         pass
+    
+    @abstractmethod
+    def load_model(path):
+        pass

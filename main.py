@@ -6,7 +6,7 @@ from src.core.dataset.storage.CsvStorage import CsvStorage
 from src.core.features.VectorizeManager import VectorizeManager
 from src.core.features.DefaultVectorizer import DefaultVectorizer
 from sklearn.model_selection import train_test_split
-from src.config.settings import TEST_SIZE,RANDOME_STATE
+from src.config.settings import TEST_SIZE,RANDOME_STATE,MODEL_NAME,VECTORIZER_NAME
 from src.core.model.Model import Model
 from src.core.model.trainning.NaiveBaiseClassifier import NaiveBaiseClassifier
 from src.core.model.Spliter import Spliter
@@ -56,5 +56,9 @@ if __name__ == "__main__":
     print("***********************************************************************")
     print("Confusion Matrix : ")
     print(pd.DataFrame(matrix_conf,index=["Actual Ham" , "Actual Spam"] , columns=["Ham" , "Spam"]))
+    #------------------------Save model & vectorizer -----------------------------
+    trainer.save_model(MODEL_NAME)
+    vac_manager.save_vectorizer(VECTORIZER_NAME)
+
     
 

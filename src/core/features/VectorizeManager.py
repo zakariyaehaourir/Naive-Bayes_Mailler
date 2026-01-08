@@ -11,3 +11,9 @@ class VectorizeManager:
 
     def get_vocabulary(self):
         return self.vectorizer.get_vocabulary()
+    
+    def save_vectorizer(self , path):
+        return self.vectorizer.save_vectorizer(path)
+    
+    def load_vectorizer(self, path):
+        return self.vectorizer.load_vectorizer(path)
