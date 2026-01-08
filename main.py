@@ -13,7 +13,7 @@ from src.core.model.Spliter import Spliter
 from src.core.model.trainning.Trainer import Trainer
 from src.core.evaluation.Evaluator import Evaluator
 import pandas as pd
-from services.PredictionService import PredictionService
+from src.services.PredictionService import PredictionService
 if __name__ == "__main__": 
     #--------------Preparing our dataset from raw text files----------------------------
     reader = Reader()
