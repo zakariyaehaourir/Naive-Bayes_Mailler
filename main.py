@@ -11,6 +11,7 @@ from src.core.model.Model import Model
 from src.core.model.trainning.NaiveBaiseClassifier import NaiveBaiseClassifier
 from src.core.model.Spliter import Spliter
 from src.core.model.trainning.Trainer import Trainer
+
 if __name__ == "__main__": 
     reader = Reader()
     X,Y =reader.build_dataset_raw(HAM_FOLDER,SPAM_FOLDER)
@@ -40,3 +41,7 @@ if __name__ == "__main__":
     X_train,X_test,Y_train,Y_test = spliter.split_dataset(X_vect , Y , TEST_SIZE=TEST_SIZE , random=RANDOME_STATE)
     print(X_train.shape) #(nbr_emails en train , nbr features words vocabulary)
     trainer.train_model(X_train , Y_train)
+    #prediction for testing or evoluate
+    Y_pred = trainer.get_predict(X_test)
+    print(Y_pred)
+

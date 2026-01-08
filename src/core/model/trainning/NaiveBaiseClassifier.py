@@ -17,5 +17,5 @@ class NaiveBaiseClassifier(Model):
     def save_model(path):
         pass
     
-    def predict(X_test):
-        return super().predict()
+    def predict(self,X_test):
+        return self.model.predict(X_test)
