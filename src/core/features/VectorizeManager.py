@@ -4,10 +4,10 @@ class VectorizeManager:
         self.vectorizer = vect
 
     def transform(self,X):
-        return self.vectorizer.transorm(X)
+        return self.vectorizer.transform(X)
     
     def build_vocabulary(self,X):
         self.vectorizer.set_vocabulary(X)
-        
+
     def get_vocabulary(self):
         return self.vectorizer.get_vocabulary()

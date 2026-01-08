@@ -7,3 +7,6 @@ HAM_FOLDER = os.path.join(RAW_DATA_PATH, "easy_ham")
 
 PROCESSED_DATA_PATH = os.path.join(BASE_DIR, "data", "processed")
 TEST_SIZE=0.2
+RANDOME_STATE = 42
+
+MODEL_PATH = os.path.join(BASE_DIR , "models")
