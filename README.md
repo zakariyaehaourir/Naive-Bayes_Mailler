@@ -23,7 +23,9 @@ Avant d'utiliser le projet, vous devez :
 ### Post-condition
 Une fois l'environnement configuré, vous pouvez lancer le pipeline complet (entraînement et test) via le point d'entrée principal avec la commande standard.
 
-`python main.py`
+```bash 
+python main.py
+```
 ## Pipeline du projet
 Le projet est structuré pour suivre une pipeline ML complète :
 1. Lecture des emails
@@ -48,10 +50,23 @@ Le projet est structuré pour suivre une pipeline ML complète :
     - Recall :  0.78
     - F1-Score : 0.87
     - Matrice de confusion :   
-| | Predicted Ham | Predicted Spam |
-| :--- | :---: | :---: |
-| **Actual Ham** | **511** (VN) | 0 (FP) |
-| **Actual Spam** | 22 (FN) | **78** (VP) |
+<table>
+  <tr>
+    <th></th>
+    <th>Predicted Ham</th>
+    <th>Predicted Spam</th>
+  </tr>
+  <tr>
+    <td><b>Actual Ham</b></td>
+    <td align="center">511</td>
+    <td align="center">0</td>
+  </tr>
+  <tr>
+    <td><b>Actual Spam</b></td>
+    <td align="center">22</td>
+    <td align="center">78</td>
+  </tr>
+</table>
 
 5. Sauvegarde du modèle
 - Après validation, le modèle entraîné est sauvegardé dans models/.
@@ -63,12 +78,29 @@ Le projet est structuré pour suivre une pipeline ML complète :
 - Transformation via le vectorizer.
 - Transformation via le vectorizer.
 - Affichage de résultat :
-| Chemin du Fichier | Contenu Prédit | Statut |
-| :--- | :--- | :--- |
-| `test/spam.txt` | **SPAM** | ✅ Succès |
-| `test/ham.txt` | **HAM** | ✅ Succès |
+### 🧪 Résultats des Tests Individuels
 
----
+<table>
+  <thead>
+    <tr>
+      <th align="left">Chemin du Fichier</th>
+      <th align="left">Contenu Prédit</th>
+      <th align="center">Statut</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>test/spam.txt</code></td>
+      <td><strong>SPAM</strong></td>
+      <td align="center">✅ Succès</td>
+    </tr>
+    <tr>
+      <td><code>test/ham.txt</code></td>
+      <td><strong>HAM</strong></td>
+      <td align="center">✅ Succès</td>
+    </tr>
+  </tbody>
+</table>
 
 ## Structure du projet
 ```text
